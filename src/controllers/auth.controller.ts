@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
-import { users } from "../models/User";
+import { users } from "../models/user";
 
 export const renderLogin = (req: Request, res: Response) => {
   res.render("login");

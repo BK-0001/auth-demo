@@ -1,5 +1,5 @@
 import cookieSession from "cookie-session";
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import expressEjsLayouts from "express-ejs-layouts";
 import path from "path";
 import { router as authRouter } from "./routes/auth.router";
@@ -27,10 +27,5 @@ app.use(
   })
 );
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(req.session);
-  next();
-});
-
-app.use(indexRouter);
 app.use("/auth", authRouter);
+app.use(indexRouter);
