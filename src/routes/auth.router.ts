@@ -1,11 +1,8 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { renderLogin, renderRegister } from "../controllers/auth.controller";
 
 export const router = Router();
 
-router.get("/login", (req: Request, res: Response) => {
-  res.render("login");
-});
+router.get("/login", renderLogin);
 
-router.get("/register", (req: Request, res: Response) => {
-  res.render("register");
-});
+router.get("/register", renderRegister);

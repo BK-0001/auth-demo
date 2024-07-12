@@ -1,6 +1,7 @@
 import express from "express";
 import expressEjsLayouts from "express-ejs-layouts";
 import path from "path";
+import { router as authRouter } from "./routes/auth.router";
 import { router as indexRouter } from "./routes/index.router";
 
 export const app = express();
@@ -14,4 +15,4 @@ app.set("layout", path.join(__dirname, "views/layouts/layout"));
 app.use(expressEjsLayouts);
 
 app.use(indexRouter);
-app.use("/auth", indexRouter);
+app.use("/auth", authRouter);
