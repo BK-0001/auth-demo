@@ -30,7 +30,8 @@ app.use(
 app.use((req, res, next) => {
   req.app.locals = {
     currentUser: req.session?.currentUser,
-    error: null
+    error: null,
+    title: null
   };
 
   next();

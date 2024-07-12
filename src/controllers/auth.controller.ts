@@ -3,11 +3,11 @@ import { Request, Response } from "express";
 import { users } from "../models/user";
 
 export const renderLogin = (req: Request, res: Response) => {
-  res.render("login");
+  res.render("auth", { title: "Login", email: "", password: "" });
 };
 
 export const renderRegister = (req: Request, res: Response) => {
-  res.render("register");
+  res.render("auth", { title: "Register" });
 };
 
 export const login = async (req: Request, res: Response) => {
@@ -16,7 +16,12 @@ export const login = async (req: Request, res: Response) => {
   const user = users.find((user) => user.email === email);
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
-    res.render("login");
+    res.render("auth", {
+      error: "Invalid Email or Password",
+      title: "Login",
+      email,
+      password
+    });
     return;
   }
 
@@ -31,7 +36,7 @@ export const register = async (req: Request, res: Response) => {
   const user = users.find((user) => user.email === email);
 
   if (user) {
-    res.render("register");
+    res.render("auth", { title: "Register", error: "email in use" });
     return;
   }
 
