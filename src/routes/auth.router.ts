@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   login,
+  logout,
   register,
   renderLogin,
   renderRegister
@@ -13,3 +14,5 @@ router.post("/login", login);
 
 router.get("/register", renderRegister);
 router.post("/register", register);
+
+router.post("/logout", logout);

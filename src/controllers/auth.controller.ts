@@ -48,3 +48,9 @@ export const register = async (req: Request, res: Response) => {
 
   res.redirect("/");
 };
+
+export const logout = async (req: Request, res: Response) => {
+  req.session = null;
+
+  res.redirect("/auth/login");
+};
