@@ -27,5 +27,14 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  req.app.locals = {
+    currentUser: req.session?.currentUser,
+    error: null
+  };
+
+  next();
+});
+
 app.use("/auth", authRouter);
 app.use(indexRouter);

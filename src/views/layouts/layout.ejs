@@ -9,9 +9,17 @@
     <header>
       <nav>
         <ul>
+          <% if (currentUser) { %>
           <li><a href="/">HOME</a></li>
+          <form action="/auth/logout" method="post">
+            <button type="submit">LOGOUT</button>
+          </form>
+
+          <% } else { %>
+
           <li><a href="/auth/login">LOGIN</a></li>
           <li><a href="/auth/register">REGISTER</a></li>
+          <% } %>
         </ul>
       </nav>
     </header>

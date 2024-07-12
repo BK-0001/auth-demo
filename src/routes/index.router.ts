@@ -4,5 +4,5 @@ import { validateUser } from "../middleware/validate-user";
 export const router = Router();
 
 router.get("/", validateUser, (req: Request, res: Response) => {
-  res.render("index");
+  res.render("index", { currentUser: 1 });
 });
