@@ -14,3 +14,4 @@ app.set("layout", path.join(__dirname, "views/layouts/layout"));
 app.use(expressEjsLayouts);
 
 app.use(indexRouter);
+app.use("/auth", indexRouter);
