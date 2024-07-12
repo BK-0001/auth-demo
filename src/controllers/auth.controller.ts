@@ -15,10 +15,12 @@ export const login = async (req: Request, res: Response) => {
 
   const user = users.find((user) => user.email === email);
 
-  if (!user || (await bcrypt.compare(password, user.password))) {
+  if (!user || !(await bcrypt.compare(password, user.password))) {
     res.render("login");
     return;
   }
+
+  req.session = { currentUser: { id: user.id, email } };
 
   res.redirect("/");
 };
