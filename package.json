@@ -4,7 +4,7 @@
   "description": "1. **Setup Server with EJS:**    - Configure your server to use EJS as the view engine.    - Define the directories for static files and EJS templates.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsnd --inspect -- src/index.ts"
   },
   "keywords": [],
   "author": "",
